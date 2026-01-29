@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class CharacterPattern{
     private char character;
     private String[] pattern;
@@ -15,7 +18,9 @@ class CharacterPattern{
 }
 public class OOPSBannerApp {
     public static void main(String[] args) {
-        CharacterPattern o = new CharacterPattern('O', new String[]{
+        Map<Character, CharacterPattern> bannerMap = new HashMap<>();
+
+        bannerMap.put('O', new CharacterPattern('O', new String[]{
                 "    ***    ",
                 " **     ** ",
                 "**       **",
@@ -23,9 +28,9 @@ public class OOPSBannerApp {
                 "**       **",
                 " **     ** ",
                 "    ***    "
-        });
+        }));
 
-        CharacterPattern p = new CharacterPattern('P', new String[]{
+        bannerMap.put('P', new CharacterPattern('P', new String[]{
                 "******  ",
                 "**    **",
                 "**    **",
@@ -33,9 +38,9 @@ public class OOPSBannerApp {
                 "**      ",
                 "**      ",
                 "**      "
-        });
+        }));
 
-        CharacterPattern s = new CharacterPattern('S',new String[]{
+        bannerMap.put('S', new CharacterPattern('S', new String[]{
                 "    *****  ",
                 "  **       ",
                 " **        ",
@@ -43,17 +48,19 @@ public class OOPSBannerApp {
                 "      **   ",
                 "     **    ",
                 "*****     "
-        });
+        }));
+        renderBanner("OOPS", bannerMap);
+    }
+    private static void renderBanner(String word, Map<Character, CharacterPattern> bannerMap){
 
-        CharacterPattern[] word ={o,o,p,s};
         for (int i=0;i<7;i++){
             StringBuilder line = new StringBuilder();
 
-            for(CharacterPattern cp: word){
-                line.append(cp.getLine(i)).append(" ");
+            for(char cp: word.toCharArray()){
+                CharacterPattern bannerCharacter = bannerMap.get(cp);
+                line.append(bannerCharacter.getLine(i)).append(" ");
             }
             System.out.println(line);
         }
     }
-
 }
