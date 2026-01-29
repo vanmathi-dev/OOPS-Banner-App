@@ -1,17 +1,17 @@
 public class OOPSBannerApp {
     public static void main(String[] args) {
-        System.out.println(String.join("", "    ***    ", "    ***    "," ", "******  ","    *****  "));
+        String[] oopsArrayLoop = {
+                String.join("", "    ***    ", " ", "    ***    "," ", "******  ","    *****  "),
+                String.join(""," **     ** ", " "," **     ** "," ", "**    **", "  **       "),
+                String.join("", "**       **", " ","**       **"," ", "**    **"," **        "),
+                String.join("", "**       **", " ","**       **"," ",  "******  ",  "   ***     "),
+                String.join("", "**       **", " ","**       **"," ", "**      ", "      **   "),
+                String.join("", " **     ** ", " "," **     ** "," ", "**      ", "     **    "),
+                String.join("",  "    ***    ", " ",  "    ***    "," ","**      ", "*****     ")
+        };
 
-        System.out.println(String.join(""," **     ** "," **     ** "," ", "**    **", "  **       "));
-
-        System.out.println(String.join("", "**       **","**       **"," ", "**    **"," **        "));
-
-        System.out.println(String.join("", "**       **","**       **"," ",  "******  ",  "   ***     "));
-
-        System.out.println(String.join("", "**       **","**       **"," ", "**      ", "      **   "));
-
-        System.out.println(String.join("", " **     ** "," **     ** "," ", "**      ", "     **    "));
-
-        System.out.println(String.join("",  "    ***    ",  "    ***    "," ","**      ", "*****     "));
+        for (String line : oopsArrayLoop){
+            System.out.println(line);
+        }
     }
 }
